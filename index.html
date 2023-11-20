@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="manifest" href="manifest.json">
+  <title>JASA RENTAL MOBIL</title>
+</head>
+
+<body>
+
+  <h1>SELAMAT DATANG DI RENTAL MOBIL FAMILIY </h1>
+  <fieldset id="rentalForm">
+    <legend>Form Peminjaman</legend>
+    <label for="carType">Pilih Jenis Mobil:</label>
+    <select id="carType" name="carType">
+      <option value="avanza">Toyota Avanza</option>
+      <option value="ayla">Daihatsu Ayla</option>
+      <option value="crv">Honda CR-V</option>
+    </select>
+    <label for="rentalDays">Masukkan Jumlah Hari:</label>
+    <input type="number" id="rentalDays" name="rentalDays" /><br>
+    <br>
+    <!-- Tambah input untuk tanggal penyewaan -->
+    <label for="rentalDate">Tanggal Penyewaan:</label>
+    <input type="date" id="rentalDate" name="rentalDate" />
+
+    <button type="button" onclick="addRental()">Tambah Peminjaman</button>
+  </fieldset>
+
+  <h2>Daftar Peminjaman</h2>
+  <table id="rentalList">
+    <tr>
+      <th>Jenis Mobil</th>
+      <th>Jumlah Hari</th>
+      <th>Total Biaya</th>
+      <th>Aksi</th>
+    </tr>
+  </table>
+
+  <br />
+  <div id="totalPayment"></div>
+
+  <br />
+  <form id="paymentForm" onsubmit="event.preventDefault(); calculateChange()">
+    <label for="amountPaid">Jumlah Bayar:</label><br />
+    <input type="number" id="amountPaid" name="amountPaid" />
+    <button type="submit">Hitung Kembalian</button>
+    <br>
+  </form>
+
+  <br />
+  <div id="change"></div>
+  <div>
+    <ul id="list-mobil"></ul>
+    <button onclick="window.print()">Print Hasil</button>
+  </div>
+
+  <script src="/assets/js/fungsi.js"></script>
+  <script src="/assets/js/register.js"></script>
+
+
+  <h4>CATATAN</h4>
+  <p>Toyota Avanza: Rp300,000/hari, diskon 25% jika lebih dari 3 hari</p>
+  <p>Daihatsu Ayla: Rp400,000/hari, diskon 15% jika lebih dari 2 hari</p>
+  <p>Honda CR-V: Rp500,000/hari</p>
+  <p>"Nikamti perjalanan anda bersama keluarga maupun teman dengan berkesan dan aman menggunakan jasa layanan kami" </p>
+  <p>-Terima Kasih- </p>
+  <section id="new-cars" class="new-cars">
+    <div class="container">
+      <div class="section-header">
+        <p>Pilihan Dan <span></span> Spesifikasi</p>
+        <h2>Pilihan Mobil</h2>
+      </div><!--/.section-header-->
+      <div class="new-cars-content">
+        <div class="owl-carousel owl-theme" id="new-cars-carousel">
+          <div class="new-cars-item">
+            <div class="single-new-cars-item">
+              <div class="row">
+                <div class="col-md-7 col-sm-12">
+                  <div class="new-cars-img">
+                    <img src="assets/images/avanza.jpg" alt="img" />
+                  </div><!--/.new-cars-img-->
+                </div>
+                <div class="col-md-5 col-sm-12">
+                  <div class="new-cars-txt">
+                    <h2><a href="#">Toyota Avanza <span> </span></a></h2>
+                    <p>
+                      Toyota Avanza adalah mobil multi-guna (MPV) yang diluncurkan pada 11 Desember 2003. Avanza
+                      memiliki lima pintu, dan didesain untuk memberikan sensasi berkendara yang aman dan nyaman.
+                    </p>
+                    <p class="new-cars-para2">
+                      Avanza memiliki mesin 1NR-VE 1.329 cc 4 silinder yang menghasilkan tenaga hingga 98 PS/6.000 rpm
+                      dan torsi 12,4 Kgm/4.200 rpm.
+                    </p>
+                    <br>
+                    <br>
+
+                    </button>
+                  </div><!--/.new-cars-txt-->
+                </div><!--/.col-->
+              </div><!--/.row-->
+            </div><!--/.single-new-cars-item-->
+          </div><!--/.new-cars-item-->
+          <div class="new-cars-item">
+            <div class="single-new-cars-item">
+              <div class="row">
+                <div class="col-md-7 col-sm-12">
+                  <div class="new-cars-img">
+                    <img src="assets/images/ayla.jpeg" alt="img" />
+                  </div><!--/.new-cars-img-->
+                </div>
+                <div class="col-md-5 col-sm-12">
+                  <div class="new-cars-txt">
+                    <h2><a href="#">Daihatsu Ayla</a></h2>
+                    <p>
+                      Daihatsu Ayla adalah mobil kota yang dirancang dan diproduksi oleh Daihatsu untuk pasar domestik
+                      Indonesia. Mobil ini termasuk dalam kategori mobil LCGC atau Low Cost Green Car.
+                    </p>
+                    <p class="new-cars-para2">
+                      Daihatsu Ayla memiliki mesin berkapasitas 1.000 hingga 1.200 cc. Mobil ini dikenal irit dan
+                      efektif untuk berkendaraan di dalam kota.
+                    </p>
+                    <br>
+                    </button>
+                  </div><!--/.new-cars-txt-->
+                </div><!--/.col-->
+              </div><!--/.row-->
+            </div><!--/.single-new-cars-item-->
+          </div><!--/.new-cars-item-->
+          <div class="new-cars-item">
+            <div class="single-new-cars-item">
+              <div class="row">
+                <div class="col-md-7 col-sm-12">
+                  <div class="new-cars-img">
+                    <img src="assets/images/cr-v.png" alt="img" />
+                  </div><!--/.new-cars-img-->
+                </div>
+                <div class="col-md-5 col-sm-12">
+                  <div class="new-cars-txt">
+                    <h2><a href="#">Honda CR-V</a></h2>
+                    <p>
+                      Honda CR-V adalah SUV medium yang diproduksi oleh Honda sejak 1996. CR-V adalah singkatan dari
+                      comfortable runabout vehicle atau creative riding vehicle.
+                    </p>
+                    <p class="new-cars-para2">
+                      Honda CR-V juga dilengkapi dengan fitur-fitur keselamatan berteknologi tinggi..
+                    </p>
+                  </div><!--/.new-cars-txt-->
+                </div><!--/.col-->
+              </div><!--/.row-->
+            </div><!--/.single-new-cars-item-->
+          </div><!--/.new-cars-item-->
+        </div><!--/#new-cars-carousel-->
+      </div><!--/.new-cars-content-->
+    </div><!--/.container-->
+</body>
+
+</html>
